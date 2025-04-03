@@ -69,7 +69,7 @@ document.getElementById("questionnaire-form").addEventListener("submit", (e) => 
   formDataToSend.append("entry.2101188198", formData.phone);  // Phone field
   formDataToSend.append("entry.1462208696", formData.email);  // Email field
 
-  fetch("https://script.google.com/macros/s/AKfycbykLWyE5D8vJwJzly_MoJrwerQZlpa27tCFarmwykhNNc_P53UDGLpkzD3pzmxO-CFY", {  // Replace with your Google Apps Script Web App URL
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSfPBsxIecENxdb5i9pPd3J9Yl0Kf2sLadgtcoA63GNw-3e9tw/formResponse", {  // Replace with your Google Apps Script Web App URL
     method: "POST",
     body: formDataToSend,
     mode: "no-cors"  // This allows sending data to Google Forms without a CORS error
@@ -82,6 +82,8 @@ document.getElementById("questionnaire-form").addEventListener("submit", (e) => 
     alert("Failed to submit. Please try again later.");
   });
 });
+
+
 
 // Initialize the first question
 showQuestion();
