@@ -59,6 +59,7 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
+
 document.getElementById("questionnaire-form").addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -67,7 +68,7 @@ document.getElementById("questionnaire-form").addEventListener("submit", (e) => 
   formData.append("entry.2101188198", document.getElementById("phone").value); // Phone field
   formData.append("entry.1462208696", document.getElementById("email").value); // Email field
 
-  fetch("https://docs.google.com/forms/d/e/1FAIpQLSfPBsxIecENxdb5i9pPd3J9Yl0Kf2sLadgtcoA63GNw-3e9tw/formResponse", {
+  fetch("https://script.google.com/macros/s/AKfycbykLWyE5D8vJwJzly_MoJrwerQZlpa27tCFarmwykhNNc_P53UDGLpkzD3pzmxO-CFY/exec", {
     method: "POST",
     body: formData,
     mode: "no-cors"  // Required for Google Forms
