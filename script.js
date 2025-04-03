@@ -59,21 +59,20 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
-// Handle form submission
 document.getElementById("questionnaire-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  formData[questions[step].key] = document.getElementById(questions[step].key).value.trim();
 
-  fetch("process.php", {
+  let formData = new FormData();
+  formData.append("entry.1047060156", document.getElementById("name").value);  // Name field
+  formData.append("entry.2101188198", document.getElementById("phone").value); // Phone field
+  formData.append("entry.1462208696", document.getElementById("email").value); // Email field
+
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSfPBsxIecENxdb5i9pPd3J9Yl0Kf2sLadgtcoA63GNw-3e9tw/formResponse", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
+    body: formData,
+    mode: "no-cors"  // Required for Google Forms
   })
-    .then((response) => {
-      if (!response.ok) throw new Error("Server error");
-      return response.json();
-    })
-    .then(() => {
+  .then(() => {
       chatBox.innerHTML = `<p style='font-size: 1.5em; text-align: center;'>
         ${isArabic ? "شكرًا لك على تقديم النموذج. سنتواصل معك قريبًا." : "Thank you for submitting the form. We will reach out to you shortly."}
       </p>`;
@@ -82,6 +81,7 @@ document.getElementById("questionnaire-form").addEventListener("submit", (e) => 
       alert(isArabic ? "فشل الإرسال. حاول مرة أخرى." : "Failed to submit. Please try again later.");
     });
 });
+
 
 // Initialize the first question
 showQuestion();
