@@ -69,20 +69,29 @@ document.getElementById("questionnaire-form").addEventListener("submit", (e) => 
   formDataToSend.append("entry.2101188198", formData.phone);  // Phone field
   formDataToSend.append("entry.1462208696", formData.email);  // Email field
 
-  fetch("https://docs.google.com/forms/d/e/1FAIpQLSfPBsxIecENxdb5i9pPd3J9Yl0Kf2sLadgtcoA63GNw-3e9tw/formResponse", {  // Replace with your Google Apps Script Web App URL
-    method: "POST",
-    body: formDataToSend,
-    mode: "no-cors"  // This allows sending data to Google Forms without a CORS error
-  })
-  .then(() => {
-    alert("Form submitted successfully!");
-    document.getElementById("questionnaire-form").reset();  // Reset form fields
-  })
-  .catch(() => {
-    alert("Failed to submit. Please try again later.");
-  });
-});
+// Handle form submission
+document.getElementById("questionnaire-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  formData[questions[step].key] = document.getElementById(questions[step].key).value.trim();
 
+  fetch("process.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error("Server error");
+      return response.json();
+    })
+    .then(() => {
+      chatBox.innerHTML = `<p style='font-size: 1.5em; text-align: center;'>
+        ${isArabic ? "شكرًا لك على تقديم النموذج. سنتواصل معك قريبًا." : "Thank you for submitting the form. We will reach out to you shortly."}
+      </p>`;
+    })
+    .catch(() => {
+      alert(isArabic ? "فشل الإرسال. حاول مرة أخرى." : "Failed to submit. Please try again later.");
+    });
+});
 
 
 // Initialize the first question
