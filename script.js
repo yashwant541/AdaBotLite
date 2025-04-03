@@ -64,14 +64,14 @@ document.getElementById("questionnaire-form").addEventListener("submit", (e) => 
   e.preventDefault();
 
   let formData = new FormData();
-  formData.append("entry.1047060156", document.getElementById("name").value);  // Name field
+  formData.append("entry.1047060156", document.getElementById("name").value); // Name field
   formData.append("entry.2101188198", document.getElementById("phone").value); // Phone field
   formData.append("entry.1462208696", document.getElementById("email").value); // Email field
 
-  fetch("https://script.google.com/macros/s/AKfycbykLWyE5D8vJwJzly_MoJrwerQZlpa27tCFarmwykhNNc_P53UDGLpkzD3pzmxO-CFY/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbykLWyE5D8vJwJzly_MoJrwerQZlpa27tCFarmwykhNNc_P53UDGLpkzD3pzmxO-CFY/exec", {  // Replace with your Google Apps Script Web App URL
     method: "POST",
     body: formData,
-    mode: "no-cors"  // Required for Google Forms
+    mode: "no-cors"  // Required for Google Apps Script
   })
   .then(() => {
       chatBox.innerHTML = `<p style='font-size: 1.5em; text-align: center;'>
@@ -82,7 +82,6 @@ document.getElementById("questionnaire-form").addEventListener("submit", (e) => 
       alert(isArabic ? "فشل الإرسال. حاول مرة أخرى." : "Failed to submit. Please try again later.");
     });
 });
-
 
 // Initialize the first question
 showQuestion();
