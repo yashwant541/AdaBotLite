@@ -59,29 +59,28 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
-
 document.getElementById("questionnaire-form").addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault();  // Prevent form from refreshing the page
 
   let formData = new FormData();
-  formData.append("entry.1047060156", document.getElementById("name").value); // Name field
-  formData.append("entry.2101188198", document.getElementById("phone").value); // Phone field
-  formData.append("entry.1462208696", document.getElementById("email").value); // Email field
+  formData.append("entry.1047060156", document.getElementById("name").value);  // Field for Name
+  formData.append("entry.2101188198", document.getElementById("phone").value);  // Field for Phone Number
+  formData.append("entry.1462208696", document.getElementById("email").value);  // Field for Email
 
-  fetch("https://script.google.com/macros/s/AKfycbykLWyE5D8vJwJzly_MoJrwerQZlpa27tCFarmwykhNNc_P53UDGLpkzD3pzmxO-CFY/exec", {  // Replace with your Google Apps Script Web App URL
+  fetch("https://script.google.com/macros/s/AKfycbykLWyE5D8vJwJzly_MoJrwerQZlpa27tCFarmwykhNNc_P53UDGLpkzD3pzmxO-CFY", {  // Replace with your Google Apps Script Web App URL
     method: "POST",
     body: formData,
-    mode: "no-cors"  // Required for Google Apps Script
+    mode: "no-cors"  // This allows sending data to Google Forms without a CORS error
   })
   .then(() => {
-      chatBox.innerHTML = `<p style='font-size: 1.5em; text-align: center;'>
-        ${isArabic ? "شكرًا لك على تقديم النموذج. سنتواصل معك قريبًا." : "Thank you for submitting the form. We will reach out to you shortly."}
-      </p>`;
-    })
-    .catch(() => {
-      alert(isArabic ? "فشل الإرسال. حاول مرة أخرى." : "Failed to submit. Please try again later.");
-    });
+    alert("Form submitted successfully!");
+    document.getElementById("questionnaire-form").reset();  // Reset form fields
+  })
+  .catch(() => {
+    alert("Failed to submit. Please try again later.");
+  });
 });
+
 
 // Initialize the first question
 showQuestion();
