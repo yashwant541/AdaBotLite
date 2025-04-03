@@ -1,0 +1,25 @@
+Array
+(
+    [name] => samaa
+    [number] => +97143848374
+    [email] => samaa@arab.com
+)
+Received Email: samaa@arab.com
+Received Data: {"name":"sara","number":"+971884567868","email":"abc"}
+Submitting: {"entry.1047060156":"sara","entry.2101188198":"+971884567868","entry.1462208696":"abc"}
+Google Form Response Code: 200
+Received Data: {"name":"Khaled","number":"+97122005478","email":"khaled@yahoo.com"}
+Submitting: {"entry.1047060156":"Khaled","entry.2101188198":"+97122005478","entry.1462208696":"khaled@yahoo.com"}
+Google Form Response Code: 200
+Received Data: {"name":"Simran","number":"+9763284842","email":"abc@abc.com"}
+Submitting: {"entry.1047060156":"Simran","entry.2101188198":"+9763284842","entry.1462208696":"abc@abc.com"}
+Google Form Response Code: 200
+Received Data: {"name":"Yash","number":"+918826884648","email":"yash@abc.com"}
+Submitting: {"entry.1047060156":"Yash","entry.2101188198":"+918826884648","entry.1462208696":"yash@abc.com"}
+Google Form Response Code: 200
+Received Data: {"name":"Yash","number":"+918826884648","email":"yash@gmail.com"}
+Submitting: {"entry.1047060156":"Yash","entry.2101188198":"+918826884648","entry.1462208696":"yash@gmail.com"}
+Google Form Response Code: 200
+Received Data: {"name":"Jano","number":"994383","email":"yashwant@gmail.com"}
+Submitting: {"entry.1047060156":"Jano","entry.2101188198":"994383","entry.1462208696":"yashwant@gmail.com"}
+Google Form Response Code: 200

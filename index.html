@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Questionnaire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Language change button -->
+    <button id="language-toggle" class="language-toggle">Arabic</button>
+
+    <!-- Left section for the image -->
+    <div class="left-section">
+      <img src="images/salma.jpg" alt="Salma Picture" class="image">
+    </div>
+
+    <!-- Right section for dynamic questionnaire -->
+    <div class="right-section">
+      <div id="chat-box" class="chat-box">
+        <p id="salma-message">Hey, Welcome to Gulf Waasta! My name is Sarah.</p>
+
+        <!-- Thank you message (Hidden by default) -->
+        <div id="thankYouMessage" class="hidden"></div>
+
+        <form id="questionnaire-form">
+          <div id="question-container">
+            <!-- Questions will appear dynamically here -->
+          </div>
+          <button id="next-btn" type="button" class="hidden">Next</button>
+          <button id="submit-btn" type="submit" class="hidden">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
